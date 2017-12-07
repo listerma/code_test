@@ -11,13 +11,13 @@ url = 'http://m.weather.com.cn/data3/city%s.xml'
 for p in provinces[1:]:
     p_code = p.split ('|')[0]
     url2 = url % p_code
-    content2 = urllib.request.urlopen (url2).read ().decode ('UTF-8')
+    content2 = urllib.request.urlopen (url2).read ().decode ('utf8')
     cities = content2.split (',')
     # print (cities)
     for c in cities:
         c_code = c.split ('|')[0]
         url3 = url % c_code
-        content3 = urllib.request.urlopen (url3).read ().decode ('UTF-8')
+        content3 = urllib.request.urlopen (url3).read ().decode ('utf8')
         districts = content3.split (',')
         for d in districts:
             d_pair = d.split ('|')
@@ -39,6 +39,6 @@ for p in provinces[1:]:
                 result += line
                 print (name + ':' + code)
 result += '}'
-f = open ('city.py', 'w')
+f = open ('city.py', 'w',encoding='utf8')
 f.write (result)
 f.close ()
