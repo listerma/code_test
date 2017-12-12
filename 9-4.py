@@ -35,14 +35,14 @@ for k in last_data:
             tem[h] = '不及格'
     final_data.append((' ').join(tem))
 for y in range(2,13):
-    print(y)
+    # print(y)
     sin_soc = 0
     for k in last_data:
         tem1 = k.split(' ')
         print(float(tem1[y]))
         sin_soc += float(tem1[y])
     single_ave.append('%.1f'%(sin_soc/len(last_data)))
-print(single_ave)
+# print(single_ave)
 f_out = open('output.txt','w',encoding='utf8')
 f_out.write('名次 姓名 语文 数学 英语 物理 化学 生物 政治 历史 地理 总分 平均分\n')
 f_out.write('0 平均 %s\n'% ' '.join(single_ave))
